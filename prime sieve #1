@@ -1,0 +1,28 @@
+"""
+prime sieve
+
+"""
+
+x = 0
+i = 0
+j = 3
+
+#enter the number you wish to verify
+n = int(input('Enter a number: ').strip())
+
+while n > j ** 2:
+    #check for a possible remainder
+    i = (n - j ** 2) % (j * 2)
+    if i == 0:
+        print(f'{n} is not prime, its dividers are: {j} and {int(n / j)}')
+        j += 2
+        x = 1
+    else:
+        j += 2
+
+if n - j ** 2 == 0:
+    print(f'{n} is a square of {j}')
+elif n % 2 == 0:
+    print(f'{n} is even')
+elif n - j ** 2 < 0 and x == 0:
+    print(f'{n} is prime')
